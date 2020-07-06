@@ -52,3 +52,30 @@
     </tbody>
 </table>
 
+<button id="btnLoad" type="button" class="btn btn-success"> Verileri Jquery Get İle Yükle</button>
+<div id="loading" class="alert alert-warning" style="display:none;">Yükleniyor</div>
+<ul id="list" class="list-group"></ul>
+
+<script>
+
+    $(function () {
+        $("#btnLoad").click(function () {
+            $("#list").empty();
+            $("#loading").show(300, function () {
+
+                $.get("Worker/VerileriGetir", function (d) {   
+
+                    $("#list").html(d);
+
+                    $("#loading").hide(300);
+
+                });
+
+            });
+
+         
+        });
+    });
+
+
+</script>

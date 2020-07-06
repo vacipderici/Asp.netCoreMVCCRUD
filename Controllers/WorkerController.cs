@@ -24,6 +24,11 @@ namespace Asp.netCoreMVCCRUD.Controllers
             return View(await _context.MyWorkers.ToListAsync());
         }
 
+        public async Task<PartialViewResult> VerileriGetir()
+        {
+            var workerList = await _context.MyWorkers.ToListAsync();
+            return PartialView("_DataItemPartial",workerList);
+        }
 
 
         // GET: Worker/Create
@@ -31,7 +36,7 @@ namespace Asp.netCoreMVCCRUD.Controllers
         {
             if (id == 0)
                 return View(new Worker());
-            else;
+            else
             return View(_context.MyWorkers.Find(id));
 
         }
